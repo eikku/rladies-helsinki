@@ -16,7 +16,7 @@ library(gganimate)
 #devtools::install_github("rladies/meetupr")
 library(meetupr)
 
-Sys.setenv(MEETUP_KEY = "471923b30503017651c584b687bd41")
+#Sys.setenv(MEETUP_KEY = "")
 
 api_key <- Sys.getenv("MEETUP_KEY")
 rladies_groups <- find_groups(text = "r-ladies", api_key = api_key)%>%
