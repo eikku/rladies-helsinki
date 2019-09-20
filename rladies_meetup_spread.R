@@ -15,14 +15,10 @@ library(gganimate)
 
 #devtools::install_github("rladies/meetupr")
 library(meetupr)
-
-#Sys.setenv(MEETUP_KEY = "")
-
-api_key <- Sys.getenv("MEETUP_KEY")
+#should redirect you to authenticate via auth0
 rladies_groups <- find_groups(text = "r-ladies", api_key = api_key)%>%
   #dplyr::filter(., grepl("R-Ladies",name))
   dplyr::filter(organizer=="R-Ladies Global")
-
 
 countries_count <- rladies_groups%>%group_by(country)%>%summarise(n=n())
 members_count <- rladies_groups%>%summarise(n=sum(members))
@@ -102,7 +98,4 @@ rladies_less_frames <- rladies_frames %>%
            date >= rladies_groups$created[rladies_groups$name == 'R-Ladies London'])
 
 ####animated map
-
-
-
 
